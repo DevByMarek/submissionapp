@@ -1,0 +1,129 @@
+{% extends "base.html" %} {% block stylesheet %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/exercise.css') }}"
+/>
+{% endblock %} {% block main %} {% if is_true%}
+<main>
+  <form
+    class="form_window"
+    action="{{ url_for('save_data') }}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <h2>Odovzdaj úlohu</h2>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="form_group">
+      <input
+        class="form_input"
+        type="text"
+        id="fname"
+        name="fname"
+        placeholder="Zadaj meno"
+        required
+      /><br />
+    </div>
+    <div class="form_group">
+      <input
+        class="form_input"
+        type="text"
+        id="lname"
+        name="lname"
+        placeholder="Zadaj priezvisko"
+        required
+      />
+      <br />
+    </div>
+    <div class="form_group">
+      <input
+        class="form_input"
+        type="text"
+        id="group"
+        name="group"
+        placeholder="Zadaj skupinu (nepovinné)"
+      />
+      <br />
+    </div>
+    <div class="form_group">
+      <select class="form_input_select" name="class" required>
+<option value="">Vyber triedu</option>
+
+<option value="1.A">1.A</option>
+<option value="1.B">1.B</option>
+<option value="1.C">1.C</option>
+<option value="1.D">1.D</option>
+<option value="1.E">1.E</option>
+<option value="1.F">1.F</option>
+<option value="1.G">1.G</option>
+
+<option value="2.A">2.A</option>
+<option value="2.B">2.B</option>
+<option value="2.C">2.C</option>
+<option value="2.D">2.D</option>
+<option value="2.E">2.E</option>
+<option value="2.F">2.F</option>
+<option value="2.G">2.G</option>
+
+<option value="3.A">3.A</option>
+<option value="3.B">3.B</option>
+<option value="3.C">3.C</option>
+<option value="3.D">3.D</option>
+<option value="3.E">3.E</option>
+<option value="3.F">3.F</option>
+<option value="3.G">3.G</option>
+<option value="3.H">3.H</option>
+
+<option value="4.A">4.A</option>
+<option value="4.B">4.B</option>
+<option value="4.C">4.C</option>
+<option value="4.D">4.D</option>
+<option value="4.E">4.E</option>
+<option value="4.F">4.F</option>
+<option value="4.G">4.G</option>
+
+
+      </select>
+    </div>
+
+    <!-- TOTO JE DRAG AND DROP OKNO HTML -->
+    <label class="file-drop">
+      <input type="file" name="file" id="file" hidden required />
+      <div class="file-drop-inner">
+        <i class="bi bi-cloud-upload"></i>
+        <p>Pretiahni súbor sem alebo klikni</p>
+        <span class="file-name"></span>
+      </div>
+    </label>
+    <!-- TU KONČÍ DRAG AND DROP OKNO HTML -->
+    <div class="form_actions">
+      <input class="submit_btn" type="submit" value="Odošli" />
+      {% with messages = get_flashed_messages(with_categories=true) %} {% for c,
+      m in messages %}
+      <p class="flash_{{ c }}">{{ m }}</p>
+      {% endfor %} {% endwith %}
+    </div>
+  </form>
+   <div class="spacer"> <!-- toto je spacer --> </div>
+
+  <div class="form_window">
+    <div class="download">
+      <h2>Stiahni úlohu</h2>
+      {%if download_file %} {% for i in download_file %}
+      <a href="{{url_for('download',filename=i)}}" class="download_group">
+        <h4>{{i}}</h4>
+        <h1><i class="bi bi-download"></i></h1>
+      </a>
+      {% endfor %} {% else %}
+      <h2>Nebol priradený žiaden súbor k zadaniu</h2>
+      <img src="{{url_for('static', filename='img/no_file_pic.png')}}" />
+      {% endif %}
+    </div>
+  </div>
+</main>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %} {% else %}
+<section class="empty-state">
+  <h1>Momentálne nebola zadaná žiadna úloha</h1>
+</section>
+{% endif %} {% endblock %}

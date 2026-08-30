@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Odovzdáreň</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+    />
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap-icons.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/fonts.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/htmx.js') }}" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block stylesheet %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <h1 class="header_class">
+        <a href="{{ url_for('index') }}">Odovzdáreň</a>
+      </h1>
+      <a
+        href="https://subfile.taulab.net"
+        class="header_class"
+        rel="noopener noreferrer"
+      >
+        <i class="bi bi-person-fill-lock"></i>
+      </a>
+    </header>
+    <div class="content_window">{% block main %}{% endblock %}</div>
+    <footer>
+      <small><p>We &hearts; open-source technologies</p></small>
+      <small><p>Built with Python, Flask, Jinja2, Gunicorn</p></small>
+      <p><small>Web používa výlučne technické a funkčné cookies nevyhnutné pre jeho správne fungovanie.</small></p>
+    </footer>
+	{% block scripts %}{% endblock %}
+  </body>
+</html>

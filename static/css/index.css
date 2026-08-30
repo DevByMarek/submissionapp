@@ -1,0 +1,35 @@
+.index_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--gap);
+  width: 100%;
+  min-height: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--backgroud-dark);
+  width: 20rem;
+  height: 3rem;
+  border-radius: var(--children-radius);
+  font-size: var(--font-h2);
+  font-family: var(--text-font);
+  color: var(--text-color);
+  transition: 0.2s;
+}
+
+.card:hover {
+  background-color: var(--backround-light);
+}
+
+a {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

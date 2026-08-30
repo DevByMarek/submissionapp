@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block stylesheet %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+{% endblock %} {% block main %}
+<section class="index_content">
+  <a href="{{ url_for('exercise') }}"><div class="card">Testy</div></a>
+  <a href="{{ url_for('homework') }}"><div class="card">Iné úlohy</div></a>
+  <a href="{{ url_for('cloud') }}"><div class="card">Cloud</div></a>
+</section>
+
+{% endblock %}

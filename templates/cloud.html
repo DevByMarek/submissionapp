@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block stylesheet %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/exercise.css') }}"
+/>
+{% endblock %} {% block main %}
+<section class="cloud_content">
+  <div class="form_window">
+    <div class="download">
+      <h2>Stiahni súbor</h2>
+      {%if download_file %} {% for i in download_file %}
+      <a href="{{url_for('cloud_download',filename=i)}}" class="download_group">
+        <h4>{{i}}</h4>
+        <h1><i class="bi bi-download"></i></h1>
+      </a>
+      {% endfor %} {% else %}
+      <h2>Nebol nahratý žiaden súbor</h2>
+      <img src="{{url_for('static', filename='img/no_file_pic.png')}}" />
+      {% endif %}
+    </div>
+  </div>
+  
+</section>
+
+{% endblock %}

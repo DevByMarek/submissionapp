@@ -1,0 +1,150 @@
+:root {
+  --text-color: white;
+  --text-font: DynaPuff;
+  --button-size: 3rem;
+  /* typografia */
+  /* base */
+  --font-base: 1rem; /* 16px */
+
+  /* headings */
+  --font-h1: 2.441rem; /* 39px */
+  --font-h2: 1.953rem; /* 31px */
+  --font-h3: 1.563rem; /* 25px */
+  --font-h4: 1.25rem; /* 20px */
+
+  /* text */
+  --font-p-big: 1.125rem; /* 18px */
+  --font-p-middle: 1rem; /* 16px */
+  --font-p-small: 0.875rem; /* 14px */
+
+  /* spacing systém */
+  --space-none: 0;
+  --space-025: 0.25rem; /* 4px */
+  --space-035: 0.35rem; /* 4px */
+  --space-050: 0.5rem; /* 8px */
+  --space-100: 1rem; /* 16px */
+  --space-150: 1.5rem; /* 24px */
+  --space-200: 2rem; /* 32px */
+  --gap: 2rem;
+
+  /* layout */
+  --small-radius: 0.5rem;
+  --big-radius: 2.5rem;
+  --children-radius: 1rem;
+
+  /* colors*/
+  --backround-light: rgba(0, 0, 0, 0.5);
+  --backgroud-dark: rgba(255, 255, 255, 0.1);
+  --background-hover: rgba(255, 255, 255, 0.2);
+}
+
+html,
+body {
+  font-weight: 400;
+  margin: var(--space_none);
+  padding: var(--space_none);
+  width: 100%; /* nastaví šírku elementov na 100 % šírky viewportu */
+  min-height: 100vh; /*minimálna výška = 100 % výšky obrazovky -> dôležité, aby pozadie pokrylo celý displej, aj keď je málo obsahu*/
+  font-size: var(--basic-size);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(120, 90, 255, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(circle at 80% 20%, rgba(0, 200, 255, 0.25), transparent 50%),
+    radial-gradient(circle at 60% 80%, rgba(255, 120, 80, 0.2), transparent 55%),
+    linear-gradient(180deg, #0a0a0f, #111827, #0a0a0f);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* pozadie je fixované k viewportu ➡️ obsah sa scrolluje nad ním*/
+}
+
+header {
+  grid-row: 1;
+  height: 5.5rem;
+  margin-bottom: var(--space-100);
+  border-bottom-right-radius: var(--big-radius);
+  border-bottom-left-radius: var(--big-radius);
+  background-color: var(--backround-light);
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-color);
+}
+
+header h1,
+header i {
+  margin: var(--space-none);
+  padding: var(--space-none);
+  color: var(--text-color);
+  font-size: var(--font-h1);
+  align-content: center;
+  padding-left: var(--space-100);
+  padding-right: var(--space-100);
+  font-family: var(--text-font), system-ui;
+  font-weight: 500;
+}
+
+header a {
+  margin-left: auto;
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-100);
+}
+
+header i {
+  margin-left: auto;
+}
+
+main {
+  grid-row: 2;
+}
+
+footer {
+  display: flex;
+  background-color: var(--backround-light);
+  grid-row: 3;
+  height: fit-content;
+  width: 100%;
+  color: var(--text_color);
+  font-family: var(--text-font);
+  color: var(--text-color);
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: var(--space-100);
+  text-align: center;
+  word-break: break-word; /* zalamovanie dlhého textu */
+}
+
+footer p {
+  text-align: center;
+  padding: var(--space-none);
+  margin: var(--space-025);
+}
+
+.header_class {
+  transition: 0.2s;
+}
+
+.header_class:hover {
+  color: #808080;
+}
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
