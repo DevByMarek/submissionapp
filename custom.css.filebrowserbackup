@@ -1,0 +1,109 @@
+/* ==========================================================================
+   FILE BROWSER CUSTOM STYLES (PC + MOBILE FIX)
+   ========================================================================== */
+
+/* 1. Pozadie pre PC aj Mobil (fix pre mobilné prehliadače) */
+#login {
+  position: relative !important;
+  background: #0a0a0f !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+#login::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(120, 90, 255, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 200, 255, 0.25),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 60% 80%,
+      rgba(255, 120, 80, 0.20),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #0a0a0f,
+      #111827,
+      #0a0a0f
+    ) !important;
+}
+
+/* 2. Skrytie nadpisu, loga a textov */
+#login h1,
+#login .logo,
+#login img,
+#login p,
+#login svg {
+  display: none !important;
+}
+
+/* 3. Dizajn formulára s podporou mobilov */
+#login form {
+  position: relative !important;
+  z-index: 1 !important;
+  border-radius: 16px !important;
+  background: rgba(17, 24, 39, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 2rem 1.5rem !important;
+  max-width: 90% !important;
+  margin: 0 auto !important;
+}
+
+/* 4. Štítky */
+#login label {
+  color: #f3f4f6 !important;
+  font-weight: 500 !important;
+}
+
+/* 5. Vstupné polia */
+#login input[type="text"],
+#login input[type="password"] {
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+#login input[type="text"]:focus,
+#login input[type="password"]:focus {
+  border-color: #785aff !important;
+  outline: none !important;
+}
+
+/* 6. Tlačidlo */
+#login input[type="submit"],
+#login button {
+  border-radius: 8px !important;
+  background: #785aff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease-in-out !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+#login input[type="submit"]:hover,
+#login button:hover {
+  background: #6342f5 !important;
+  cursor: pointer !important;
+}
