@@ -8,6 +8,13 @@
   background: #0a0a0f !important;
   min-height: 100vh !important;
   overflow: hidden !important;
+   display: flex !important;
+   flex-direction: column !important;
+   justify-content: center !important;
+   align-items: center !important;
+   min-height: 100vh !important;
+   min-height: 100dvh !important;
+   height: auto !important;
 }
 
 #login::before {
@@ -63,8 +70,9 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   padding: 2rem 1.5rem !important;
-  max-width: 90% !important;
   margin: 0 auto !important;
+   inset: auto !important;
+   transform: none !important;
 }
 
 /* 4. Štítky */
